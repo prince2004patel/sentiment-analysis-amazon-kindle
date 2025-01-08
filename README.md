@@ -84,3 +84,5 @@ python app.py
 ```bash
 streamlit run app.py
 ```
+
+![Kindle Sentiment Analysis](img/img1.png)
