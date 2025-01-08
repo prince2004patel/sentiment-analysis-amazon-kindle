@@ -1,0 +1,9 @@
+Flask
+scikit-learn
+numpy
+pickle5
+streamlit
+requests
+nltk
+beautifulsoup4
+lxml
