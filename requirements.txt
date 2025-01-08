@@ -1,7 +1,7 @@
 Flask
 scikit-learn
 numpy
-pickle5
+pickle
 streamlit
 requests
 nltk
