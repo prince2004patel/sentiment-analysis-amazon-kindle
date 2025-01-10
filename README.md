@@ -1,6 +1,6 @@
-# Sentiment Analysis on Amazon Kindle Dataset
+# Sentiment Analysis and Spam Detection
 
-## Best Practices (As suggested by Krish Naik)
+## Best Practices (As Suggested by Krish Naik)
 
 ### 1. Preprocessing and Cleaning
 
@@ -25,6 +25,8 @@
 
 ## Models Used
 
+### Sentiment Analysis
+
 1. **Bag of Words (BoW) with Multinomial Naive Bayes (MNB)**
 
    - **Accuracy**: 85%
@@ -39,6 +41,22 @@
    - **Accuracy**: 75%
    - This model uses Word2Vec to convert words into vectors and averages the vectors to classify the sentiment of the text.
 
+### Spam Detection
+
+1. **Bag of Words (BoW) with Multinomial Naive Bayes (MNB)**
+
+   - **Accuracy**: 98%
+   - This model uses the Bag of Words approach to convert text into feature vectors and then classifies messages as Spam or Ham using Multinomial Naive Bayes.
+
+2. **TF-IDF**
+
+   - **Accuracy**: 97%
+   - This model evaluates the importance of words and classifies messages based on term frequency and inverse document frequency.
+
+3. **Word2Vec**
+   - **Accuracy**: 94%
+   - This model uses Word2Vec to generate word embeddings and classifies the messages.
+
 ## Setup Instructions
 
 ### 1. Clone the Repository
@@ -46,7 +64,7 @@
 To clone the repository, use the following command:
 
 ```bash
-git clone https://github.com/your-username/sentiment-analysis-amazon-kindle.git
+git clone https://github.com/your-username/sentiment-spam-detection.git
 ```
 
 ### 2. Install Dependencies
@@ -56,7 +74,7 @@ To install the required dependencies for this project, use the following command
 1. Ensure you are in the project directory:
 
 ```bash
-cd sentiment-analysis-amazon-kindle
+cd sentiment-spam-detection
 ```
 
 2. This will install all the necessary Python libraries required for both the Flask back-end and Streamlit front-end to work properly:
@@ -70,7 +88,7 @@ pip install -r requirements.txt
 1. Ensure you are in the project directory:
 
 ```bash
-cd sentiment-analysis-amazon-kindle
+cd sentiment-spam-detection
 ```
 
 2. Run the Flask application:
@@ -85,4 +103,10 @@ python app.py
 streamlit run app.py
 ```
 
+## Some Screenshots
+
 ![Kindle Sentiment Analysis](img/img1.png)
+
+![SMS Spam Detection](img/img2.png)
+
+![About This Project](img/img3.png)
