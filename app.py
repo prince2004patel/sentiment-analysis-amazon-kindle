@@ -1,8 +1,17 @@
 import streamlit as st
-import requests
+import pickle
+import numpy as np
+import pandas as pd
 
 # Set up the Streamlit page
 st.set_page_config(page_title="Text Classification", page_icon=":guardsman:", layout="wide")
+
+# Load pre-trained models
+with open('models/pipeline_bow.pkl', 'rb') as file:
+    sentiment_model = pickle.load(file)
+
+with open('models/sms_pipeline_bow.pkl', 'rb') as file:
+    spam_model = pickle.load(file)
 
 # Sidebar for selecting the type of prediction or information
 option = st.sidebar.radio("Select a Task:", ("Sentiment Analysis", "Spam Detection", "About This Project"))
@@ -13,14 +22,10 @@ if option == "Sentiment Analysis":
     
     if st.button("Predict Sentiment"):
         if review.strip():
-            url = "http://127.0.0.1:5000/predict_sentiment"
-            response = requests.post(url, json={"reviewText": review})
-            
-            if response.status_code == 200:
-                result = response.json()
-                st.subheader(f"Prediction: {result['sentiment']}")
-            else:
-                st.error("Failed to get prediction. Please try again.")
+            # Perform sentiment prediction
+            prediction = sentiment_model.predict([review])
+            sentiment = "Positive 😄" if prediction == 1 else "Negative 😞"
+            st.subheader(f"Prediction: {sentiment}")
         else:
             st.error("Please enter a review before clicking the 'Predict' button.")
 
@@ -30,14 +35,10 @@ elif option == "Spam Detection":
     
     if st.button("Predict Spam"):
         if message.strip():
-            url = "http://127.0.0.1:5000/predict_spam"
-            response = requests.post(url, json={"messageText": message})
-            
-            if response.status_code == 200:
-                result = response.json()
-                st.subheader(f"Prediction: {result['classification']}")
-            else:
-                st.error("Failed to get prediction. Please try again.")
+            # Perform spam detection
+            prediction = spam_model.predict([message])
+            classification = "Ham 📩" if prediction == 1 else "Spam 🚫"
+            st.subheader(f"Prediction: {classification}")
         else:
             st.error("Please enter a message before clicking the 'Predict' button.")
 
