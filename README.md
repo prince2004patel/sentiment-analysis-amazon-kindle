@@ -1,5 +1,9 @@
 # Sentiment Analysis and Spam Detection
 
+## Live Demo :-
+
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-blue)](https://sentiment-spam-detection-by-prince.streamlit.app/)
+
 ## Best Practices (As Suggested by Krish Naik)
 
 ### 1. Preprocessing and Cleaning
@@ -63,8 +67,8 @@
 
 To clone the repository, use the following command:
 
-```bash
-git clone https://github.com/your-username/sentiment-spam-detection.git
+```bash[
+git clone https://github.com/prince2004patel/sentiment-spam-detection.git
 ```
 
 ### 2. Install Dependencies
@@ -91,13 +95,7 @@ pip install -r requirements.txt
 cd sentiment-spam-detection
 ```
 
-2. Run the Flask application:
-
-```bash
-python app.py
-```
-
-3. Start the Streamlit app:
+2. Start the Streamlit app:
 
 ```bash
 streamlit run app.py
